@@ -18,11 +18,11 @@ export const metadata = {
   openGraph: {
     title: "Krishnanshu & Shriya's Wedding",
     description: "Join us in celebrating our new beginning! ✨",
-    url: 'https://shriya-krishnanshu-wedding.vercel.app', // You will create this link in Step 3!
+    url: 'https://shrikrishna-wedding.vercel.app', 
     siteName: 'Krishnanshu & Shriya',
     images: [
       {
-        url: '/avatars/welcome.jpeg', // This forces WhatsApp to use your welcome image!
+        url: '/avatars/welcome.jpeg', // This tells WhatsApp to use your welcome image!
         width: 800,
         height: 600,
       },

@@ -125,13 +125,10 @@ const ScratchModalCanvas = ({
   );
 };
 
-export default function InteractiveInvite() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeEvent, setActiveEvent] = useState<any | null>(null);
-  const [isFullyScratched, setIsFullyScratched] = useState(false);
+// --- ISOLATED COUNTDOWN TIMER ---
+const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  // Countdown Logic
   useEffect(() => {
     const targetDate = new Date('2026-12-05T12:25:00').getTime();
     const interval = setInterval(() => {
@@ -149,6 +146,25 @@ export default function InteractiveInvite() {
     return () => clearInterval(interval);
   }, []);
 
+  return (
+    <div className="flex justify-center gap-3 md:gap-5 w-full max-w-sm mx-auto">
+      {Object.entries(timeLeft).map(([unit, value]) => (
+        <div key={unit} className="flex flex-col items-center">
+          <div className="bg-white rounded-lg p-3 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center text-2xl font-bold font-serif shadow-md border border-amber-100 text-[#881337]">
+            {value}
+          </div>
+          <span className="font-sans text-[8px] uppercase tracking-widest mt-2 text-slate-500">{unit}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default function InteractiveInvite() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeEvent, setActiveEvent] = useState<any | null>(null);
+  const [isFullyScratched, setIsFullyScratched] = useState(false);
+
   const openModal = (event: any) => {
     setActiveEvent(event);
     setIsFullyScratched(false);
@@ -159,7 +175,6 @@ export default function InteractiveInvite() {
     setIsFullyScratched(false);
   };
 
-  // FULL EVENT DATA
   const eventsList = [
     {
       id: "mehndi",
@@ -234,7 +249,6 @@ export default function InteractiveInvite() {
       textColor: "text-[#0f766e]", 
       scratchColor: "#0D9488", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      // Forces reception block to align tightly to the right side
       alignment: "items-end text-right pl-16 pr-4" 
     }
   ];
@@ -242,14 +256,13 @@ export default function InteractiveInvite() {
   return (
     <div className="min-h-screen bg-slate-200 flex items-center justify-center font-sans text-slate-800">
       
-      {/* FONTS INJECTED PROPERLY */}
+      {/* PERFECTED COMPILER-SAFE FONT INJECTION */}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
         .font-cursive { font-family: 'Great Vibes', cursive; }
         .font-serif { font-family: 'Playfair Display', serif; }
       `}} />
 
-      {/* MOBILE APP CONTAINER */}
       <div className="relative w-full max-w-[400px] min-h-[100dvh] bg-[#FFFDF7] shadow-2xl overflow-x-hidden font-serif">
         
         {/* --- SPLASH SCREEN --- */}
@@ -260,18 +273,15 @@ export default function InteractiveInvite() {
               onClick={() => setIsOpen(true)}
               exit={{ opacity: 0, transition: { duration: 1.5 } }}
             >
-              {/* Left Door */}
               <motion.div 
                 className="absolute inset-y-0 left-0 w-1/2 bg-[url('https://www.transparenttextures.com/patterns/gold-scale.png')] bg-amber-500 border-r-2 border-amber-300/50 shadow-[5px_0_15px_rgba(0,0,0,0.3)] z-40"
                 exit={{ x: '-100%', transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }}
               />
-              {/* Right Door */}
               <motion.div 
                 className="absolute inset-y-0 right-0 w-1/2 bg-[url('https://www.transparenttextures.com/patterns/gold-scale.png')] bg-amber-500 border-l-2 border-amber-300/50 shadow-[-5px_0_15px_rgba(0,0,0,0.3)] z-40"
                 exit={{ x: '100%', transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }}
               />
               
-              {/* CENTER LOCK: K & S ON ONE LINE */}
               <motion.div 
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-center bg-white p-8 rounded-full shadow-2xl border-[6px] border-amber-300 flex flex-col items-center justify-center w-56 h-56"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -301,8 +311,6 @@ export default function InteractiveInvite() {
               <img src="/avatars/welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* TEXT CONTAINER: Lifted higher and tightened width. 
-                Using whitespace-nowrap to guarantee "Dr. Krishnanshu" stays on one line! */}
             <div className="absolute inset-y-0 right-0 top-10 z-10 w-[75%] text-right pr-4 flex flex-col items-end">
               
               <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md">
@@ -315,14 +323,14 @@ export default function InteractiveInvite() {
               <div className="space-y-1 flex flex-col items-end">
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">Dr. Krishnanshu</h1>
-                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Son of Mrs. Kavita & Mr. Rajanna Bhandarwar</p>
+                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Son of Mrs. Kavita &amp; Mr. Rajanna Bhandarwar</p>
                 </div>
                 
-                <div className="text-xl text-[#d97706] italic font-light drop-shadow pr-6">&</div>
+                <div className="text-xl text-[#d97706] italic font-light drop-shadow pr-6">&amp;</div>
                 
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">Dr. Shriya</h1>
-                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Daughter of Mrs. Sujata & Mr. Dnyaneshwar Parlawar</p>
+                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Daughter of Mrs. Sujata &amp; Mr. Dnyaneshwar Parlawar</p>
                 </div>
               </div>
 
@@ -333,25 +341,23 @@ export default function InteractiveInvite() {
             </div>
           </section>
 
-          {/* PAGE 2: YOU ARE WARMLY INVITED (Groom first, Bride second) */}
+          {/* PAGE 2: YOU ARE WARMLY INVITED */}
           <section className="relative w-full py-16 flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-[#FFFDF7] to-amber-50">
             <p className="text-amber-700 font-sans text-[11px] font-bold tracking-[0.3em] uppercase mb-10">
               You Are Warmly Invited
             </p>
             
             <div className="mb-12 text-[#881337]">
-              {/* GROOM */}
               <h2 className="text-5xl font-cursive mb-1">Dr. Krishnanshu</h2>
               <p className="text-[8px] text-slate-600 uppercase tracking-[0.2em] font-sans font-bold">
-                S/o Mrs. Kavita & Mr. Rajanna Bhandarwar
+                S/o Mrs. Kavita &amp; Mr. Rajanna Bhandarwar
               </p>
               
-              <h2 className="text-4xl font-cursive text-[#d97706] my-4">&</h2>
+              <h2 className="text-4xl font-cursive text-[#d97706] my-4">&amp;</h2>
               
-              {/* BRIDE */}
               <h2 className="text-5xl font-cursive mb-1">Dr. Shriya</h2>
               <p className="text-[8px] text-slate-600 uppercase tracking-[0.2em] font-sans font-bold">
-                D/o Mrs. Sujata & Mr. Dnyaneshwar Parlawar
+                D/o Mrs. Sujata &amp; Mr. Dnyaneshwar Parlawar
               </p>
             </div>
 
@@ -397,7 +403,7 @@ export default function InteractiveInvite() {
                     </div>
                     
                     <p className={`text-[10px] italic font-medium bg-amber-50/50 px-2 py-1.5 rounded border border-amber-100 ${event.textColor}`}>
-                      "{event.bottomQuote}"
+                      &quot;{event.bottomQuote}&quot;
                     </p>
                     
                     <button className="font-sans mt-3 text-[8px] uppercase font-bold tracking-wider text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full hover:bg-rose-50 w-max shadow-sm">
@@ -430,16 +436,8 @@ export default function InteractiveInvite() {
               Counting down to the Muhurtham
             </p>
             
-            <div className="flex justify-center gap-3 md:gap-5 w-full max-w-sm mx-auto">
-              {Object.entries(timeLeft).map(([unit, value]) => (
-                <div key={unit} className="flex flex-col items-center">
-                  <div className="bg-white rounded-lg p-3 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center text-2xl font-bold font-serif shadow-md border border-amber-100 text-[#881337]">
-                    {value}
-                  </div>
-                  <span className="font-sans text-[8px] uppercase tracking-widest mt-2 text-slate-500">{unit}</span>
-                </div>
-              ))}
-            </div>
+            <CountdownTimer />
+            
           </section>
 
           {/* FOOTER */}
@@ -459,7 +457,6 @@ export default function InteractiveInvite() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Modal Card */}
               <div className="relative w-full max-w-[360px] aspect-[9/16] bg-white rounded-xl shadow-2xl overflow-hidden font-serif border border-white/10">
                 
                 <button 
@@ -475,20 +472,16 @@ export default function InteractiveInvite() {
                   className="absolute inset-0 w-full h-full object-cover object-bottom" 
                 />
                 
-                {/* MODAL TEXT: Custom alignments depending on the event! */}
                 <div className={`absolute inset-x-0 top-12 z-10 flex flex-col ${activeEvent.alignment}`}>
                   
-                  {/* Top One-Liner */}
                   <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-sm ${activeEvent.textColor}`}>
                     {activeEvent.topQuote}
                   </p>
                   
-                  {/* Cursive Title */}
                   <h2 className={`font-cursive text-5xl mb-3 drop-shadow-md ${activeEvent.textColor}`}>
                     {activeEvent.title}
                   </h2>
                   
-                  {/* Structured Details Block: Adapted to wrap perfectly for Reception */}
                   <div className={`flex flex-col gap-1 w-full max-w-[200px] ${activeEvent.id === 'reception' ? 'items-end' : 'items-start mx-auto'} mb-2`}>
                     
                     <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
@@ -513,9 +506,8 @@ export default function InteractiveInvite() {
                     
                   </div>
 
-                  {/* Bottom One-Liner */}
                   <p className={`text-[9px] italic font-semibold drop-shadow-sm mt-1 ${activeEvent.textColor}`}>
-                    {activeEvent.bottomQuote}
+                    &quot;{activeEvent.bottomQuote}&quot;
                   </p>
                   
                 </div>
