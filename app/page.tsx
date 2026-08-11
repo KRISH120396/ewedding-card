@@ -189,7 +189,7 @@ export default function InteractiveInvite() {
       textColor: "text-[#be123c]", 
       scratchColor: "#10B981", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      alignment: "items-center text-center px-4"
+      alignment: "items-center text-center px-4 w-full"
     },
     {
       id: "haldi",
@@ -204,7 +204,7 @@ export default function InteractiveInvite() {
       textColor: "text-[#b45309]", 
       scratchColor: "#F59E0B", 
       scratchText: "✨ RUB OFF THE TURMERIC ✨",
-      alignment: "items-center text-center px-4"
+      alignment: "items-center text-center px-4 w-full"
     },
     {
       id: "sangeet",
@@ -219,7 +219,7 @@ export default function InteractiveInvite() {
       textColor: "text-[#4c1d95]", 
       scratchColor: "#8B5CF6", 
       scratchText: "✨ TAP THE DHOL ✨",
-      alignment: "items-center text-center px-4"
+      alignment: "items-center text-center px-4 w-full"
     },
     {
       id: "wedding",
@@ -234,7 +234,7 @@ export default function InteractiveInvite() {
       textColor: "text-[#be123c]", 
       scratchColor: "#E11D48", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      alignment: "items-center text-center px-4"
+      alignment: "items-center text-center px-4 w-full"
     },
     {
       id: "reception",
@@ -249,14 +249,14 @@ export default function InteractiveInvite() {
       textColor: "text-[#0f766e]", 
       scratchColor: "#0D9488", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      alignment: "items-end text-right pl-16 pr-4" 
+      // Forces reception text strictly to the right side, avoiding the avatar completely!
+      alignment: "items-end text-right pr-5 w-full max-w-[200px] ml-auto" 
     }
   ];
 
   return (
     <div className="min-h-screen bg-slate-200 flex items-center justify-center font-sans text-slate-800">
       
-      {/* PERFECTED COMPILER-SAFE FONT INJECTION */}
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
       <style dangerouslySetInnerHTML={{ __html: `
         .font-cursive { font-family: 'Great Vibes', cursive; }
@@ -311,30 +311,37 @@ export default function InteractiveInvite() {
               <img src="/avatars/welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            <div className="absolute inset-y-0 right-0 top-10 z-10 w-[75%] text-right pr-4 flex flex-col items-end">
+            {/* FIXED TEXT CONTAINER: Pushed down perfectly into the white space using top-[22%] */}
+            <div className="absolute inset-x-0 top-[22%] z-10 w-[85%] ml-auto text-right pr-6 flex flex-col items-end">
               
               <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md">
                 Together with their families
               </p>
-              <p className="text-[9px] text-[#9a3412] italic mt-1 mb-4 font-medium drop-shadow-md">
+              <p className="text-[9px] text-[#9a3412] italic mt-1 mb-5 font-medium drop-shadow-md">
                 Request the honour of your presence
               </p>
 
               <div className="space-y-1 flex flex-col items-end">
                 <div className="text-right flex flex-col items-end">
-                  <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">Dr. Krishnanshu</h1>
-                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Son of Mrs. Kavita &amp; Mr. Rajanna Bhandarwar</p>
+                  <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-2">Dr. Krishnanshu</h1>
+                  {/* PERFECT PARENTS WRAPPING & FONT SIZE INCREASE */}
+                  <p className="text-[8px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold text-right">
+                    Son of Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
+                  </p>
                 </div>
                 
-                <div className="text-xl text-[#d97706] italic font-light drop-shadow pr-6">&amp;</div>
+                <div className="text-xl text-[#d97706] italic font-light drop-shadow pr-8 my-1">&amp;</div>
                 
                 <div className="text-right flex flex-col items-end">
-                  <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">Dr. Shriya</h1>
-                  <p className="text-[5px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold">Daughter of Mrs. Sujata &amp; Mr. Dnyaneshwar Parlawar</p>
+                  <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-2">Dr. Shriya</h1>
+                  {/* PERFECT PARENTS WRAPPING & FONT SIZE INCREASE */}
+                  <p className="text-[8px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold text-right">
+                    Daughter of Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-4 pt-2 inline-block border-t border-[#d97706]/60">
+              <div className="mt-5 pt-3 inline-block border-t border-[#d97706]/60">
                 <p className="font-serif text-[15px] text-[#4c0519] font-bold drop-shadow-md">Saturday, 5th Dec 2026</p>
                 <p className="text-[8px] font-sans text-[#4c0519] font-bold tracking-widest drop-shadow-sm">12:25 PM | Chilikuri Garden</p>
               </div>
@@ -348,16 +355,18 @@ export default function InteractiveInvite() {
             </p>
             
             <div className="mb-12 text-[#881337]">
-              <h2 className="text-5xl font-cursive mb-1">Dr. Krishnanshu</h2>
-              <p className="text-[8px] text-slate-600 uppercase tracking-[0.2em] font-sans font-bold">
-                S/o Mrs. Kavita &amp; Mr. Rajanna Bhandarwar
+              <h2 className="text-5xl font-cursive mb-3">Dr. Krishnanshu</h2>
+              {/* PAGE 2 PERFECT WRAP AND SIZE */}
+              <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
+                S/o Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
               </p>
               
-              <h2 className="text-4xl font-cursive text-[#d97706] my-4">&amp;</h2>
+              <h2 className="text-4xl font-cursive text-[#d97706] my-6">&amp;</h2>
               
-              <h2 className="text-5xl font-cursive mb-1">Dr. Shriya</h2>
-              <p className="text-[8px] text-slate-600 uppercase tracking-[0.2em] font-sans font-bold">
-                D/o Mrs. Sujata &amp; Mr. Dnyaneshwar Parlawar
+              <h2 className="text-5xl font-cursive mb-3">Dr. Shriya</h2>
+              {/* PAGE 2 PERFECT WRAP AND SIZE */}
+              <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
+                D/o Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
               </p>
             </div>
 
@@ -472,7 +481,8 @@ export default function InteractiveInvite() {
                   className="absolute inset-0 w-full h-full object-cover object-bottom" 
                 />
                 
-                <div className={`absolute inset-x-0 top-12 z-10 flex flex-col ${activeEvent.alignment}`}>
+                {/* FIXED MODAL POSITIONING: top-[18%] ensures it safely clears the top frame */}
+                <div className={`absolute inset-x-0 top-[18%] z-10 flex flex-col ${activeEvent.alignment}`}>
                   
                   <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-sm ${activeEvent.textColor}`}>
                     {activeEvent.topQuote}
@@ -482,7 +492,8 @@ export default function InteractiveInvite() {
                     {activeEvent.title}
                   </h2>
                   
-                  <div className={`flex flex-col gap-1 w-full max-w-[200px] ${activeEvent.id === 'reception' ? 'items-end' : 'items-start mx-auto'} mb-2`}>
+                  {/* RECEPTION DRESS TEXT BOUNDARY: Fixed to never touch the avatar */}
+                  <div className={`flex flex-col gap-1 w-full ${activeEvent.id === 'reception' ? 'items-end max-w-[160px]' : 'items-center max-w-[200px] mx-auto'} mb-2`}>
                     
                     <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
                       <Calendar size={11} className="text-amber-500 drop-shadow shrink-0 mt-[2px]" />
