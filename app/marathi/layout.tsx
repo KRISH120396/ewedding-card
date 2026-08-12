@@ -15,3 +15,22 @@ export const metadata = {
 export default function MarathiLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'डॉ. कृष्णांशू आणि डॉ. श्रिया यांचा विवाह सोहळा',
+  description: 'आमच्या नव्या प्रवासाची सुरुवात! ✨',
+  openGraph: {
+    title: 'डॉ. कृष्णांशू आणि डॉ. श्रिया यांचा विवाह सोहळा',
+    description: 'आमच्या नव्या प्रवासाची सुरुवात! ✨',
+    images: ['/marathi-card-image.jpg'],
+  },
+};
+
+export default function MarathiLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}
