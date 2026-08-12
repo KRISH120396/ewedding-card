@@ -189,7 +189,9 @@ export default function InteractiveInvite() {
       textColor: "text-[#be123c]", 
       scratchColor: "#10B981", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      alignment: "items-center text-center px-4 w-full"
+      alignment: "items-center text-center px-4 w-full",
+      modalTop: "top-[8%]",
+      titleSpacing: "mb-3"
     },
     {
       id: "haldi",
@@ -204,7 +206,9 @@ export default function InteractiveInvite() {
       textColor: "text-[#b45309]", 
       scratchColor: "#F59E0B", 
       scratchText: "✨ RUB OFF THE TURMERIC ✨",
-      alignment: "items-center text-center px-4 w-full"
+      alignment: "items-center text-center px-4 w-full",
+      modalTop: "top-[8%]",
+      titleSpacing: "mb-3"
     },
     {
       id: "sangeet",
@@ -219,7 +223,10 @@ export default function InteractiveInvite() {
       textColor: "text-[#4c1d95]", 
       scratchColor: "#8B5CF6", 
       scratchText: "✨ TAP THE DHOL ✨",
-      alignment: "items-center text-center px-4 w-full"
+      alignment: "items-center text-center px-4 w-full",
+      // SURGICAL FIX: A safe top-[6%] nudge, combined with tightening the internal space (mb-0)
+      modalTop: "top-[6%]",
+      titleSpacing: "mb-0"
     },
     {
       id: "wedding",
@@ -234,7 +241,10 @@ export default function InteractiveInvite() {
       textColor: "text-[#be123c]", 
       scratchColor: "#E11D48", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      alignment: "items-center text-center px-4 w-full"
+      alignment: "items-center text-center px-4 w-full",
+      // SURGICAL FIX: A safe top-[6%] nudge, combined with tightening the internal space (mb-0)
+      modalTop: "top-[6%]",
+      titleSpacing: "mb-0"
     },
     {
       id: "reception",
@@ -249,8 +259,9 @@ export default function InteractiveInvite() {
       textColor: "text-[#0f766e]", 
       scratchColor: "#0D9488", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      // Forces reception text to the absolute right side, away from centered/left avatars
-      alignment: "items-end text-right pr-6 w-full max-w-[200px] ml-auto" 
+      alignment: "items-end text-right pr-6 w-full max-w-[200px] ml-auto",
+      modalTop: "top-[8%]",
+      titleSpacing: "mb-3"
     }
   ];
 
@@ -311,7 +322,6 @@ export default function InteractiveInvite() {
               <img src="/avatars/welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* TEXT CONTAINER: Perfectly positioned at 22% as you confirmed it works */}
             <div className="absolute inset-x-0 top-[22%] z-10 w-[85%] ml-auto text-right pr-6 flex flex-col items-end">
               
               <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md">
@@ -486,14 +496,14 @@ export default function InteractiveInvite() {
                   className="absolute inset-0 w-full h-full object-cover object-bottom" 
                 />
                 
-                {/* FIXED: Brought strictly back to top-[8%] to stay in the blank/white space and completely off avatars! */}
-                <div className={`absolute inset-x-0 top-[8%] z-10 flex flex-col ${activeEvent.alignment}`}>
+                {/* Dynamically uses the tuned spacing settings from our eventsList array */}
+                <div className={`absolute inset-x-0 ${activeEvent.modalTop} z-10 flex flex-col ${activeEvent.alignment}`}>
                   
                   <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-md ${activeEvent.textColor}`}>
                     {activeEvent.topQuote}
                   </p>
                   
-                  <h2 className={`font-cursive text-5xl mb-3 drop-shadow-lg ${activeEvent.textColor}`}>
+                  <h2 className={`font-cursive text-5xl ${activeEvent.titleSpacing} drop-shadow-lg ${activeEvent.textColor}`}>
                     {activeEvent.title}
                   </h2>
                   
