@@ -249,8 +249,8 @@ export default function InteractiveInvite() {
       textColor: "text-[#0f766e]", 
       scratchColor: "#0D9488", 
       scratchText: "✨ RUB TO REVEAL ✨",
-      // Forces reception text strictly to the right side, avoiding the avatar completely!
-      alignment: "items-end text-right pr-5 w-full max-w-[200px] ml-auto" 
+      // Forces reception text to the absolute right side, away from centered/left avatars
+      alignment: "items-end text-right pr-6 w-full max-w-[200px] ml-auto" 
     }
   ];
 
@@ -311,7 +311,7 @@ export default function InteractiveInvite() {
               <img src="/avatars/welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* FIXED TEXT CONTAINER: Pushed down perfectly into the white space using top-[22%] */}
+            {/* TEXT CONTAINER: Perfectly positioned at 22% as you confirmed it works */}
             <div className="absolute inset-x-0 top-[22%] z-10 w-[85%] ml-auto text-right pr-6 flex flex-col items-end">
               
               <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md">
@@ -324,7 +324,6 @@ export default function InteractiveInvite() {
               <div className="space-y-1 flex flex-col items-end">
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-2">Dr. Krishnanshu</h1>
-                  {/* PERFECT PARENTS WRAPPING & FONT SIZE INCREASE */}
                   <p className="text-[8px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold text-right">
                     Son of Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
                   </p>
@@ -334,7 +333,6 @@ export default function InteractiveInvite() {
                 
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-2">Dr. Shriya</h1>
-                  {/* PERFECT PARENTS WRAPPING & FONT SIZE INCREASE */}
                   <p className="text-[8px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold text-right">
                     Daughter of Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
                   </p>
@@ -346,6 +344,15 @@ export default function InteractiveInvite() {
                 <p className="text-[8px] font-sans text-[#4c0519] font-bold tracking-widest drop-shadow-sm">12:25 PM | Chilikuri Garden</p>
               </div>
             </div>
+
+            {/* AESTHETIC BLINKING SCROLL DOWN INDICATOR */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-bounce">
+              <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-[#881337] bg-white/80 px-4 py-1.5 rounded-full shadow-sm mb-2 animate-pulse border border-white/50">
+                SCROLL DOWN
+              </span>
+              <div className="w-4 h-4 border-b-[3px] border-r-[3px] border-[#881337] rotate-45 transform -translate-y-1"></div>
+            </div>
+            
           </section>
 
           {/* PAGE 2: YOU ARE WARMLY INVITED */}
@@ -356,7 +363,6 @@ export default function InteractiveInvite() {
             
             <div className="mb-12 text-[#881337]">
               <h2 className="text-5xl font-cursive mb-3">Dr. Krishnanshu</h2>
-              {/* PAGE 2 PERFECT WRAP AND SIZE */}
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
                 S/o Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
               </p>
@@ -364,7 +370,6 @@ export default function InteractiveInvite() {
               <h2 className="text-4xl font-cursive text-[#d97706] my-6">&amp;</h2>
               
               <h2 className="text-5xl font-cursive mb-3">Dr. Shriya</h2>
-              {/* PAGE 2 PERFECT WRAP AND SIZE */}
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
                 D/o Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
               </p>
@@ -481,43 +486,42 @@ export default function InteractiveInvite() {
                   className="absolute inset-0 w-full h-full object-cover object-bottom" 
                 />
                 
-                {/* FIXED MODAL POSITIONING: top-[18%] ensures it safely clears the top frame */}
-                <div className={`absolute inset-x-0 top-[18%] z-10 flex flex-col ${activeEvent.alignment}`}>
+                {/* FIXED: Brought strictly back to top-[8%] to stay in the blank/white space and completely off avatars! */}
+                <div className={`absolute inset-x-0 top-[8%] z-10 flex flex-col ${activeEvent.alignment}`}>
                   
-                  <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-sm ${activeEvent.textColor}`}>
+                  <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-md ${activeEvent.textColor}`}>
                     {activeEvent.topQuote}
                   </p>
                   
-                  <h2 className={`font-cursive text-5xl mb-3 drop-shadow-md ${activeEvent.textColor}`}>
+                  <h2 className={`font-cursive text-5xl mb-3 drop-shadow-lg ${activeEvent.textColor}`}>
                     {activeEvent.title}
                   </h2>
                   
-                  {/* RECEPTION DRESS TEXT BOUNDARY: Fixed to never touch the avatar */}
                   <div className={`flex flex-col gap-1 w-full ${activeEvent.id === 'reception' ? 'items-end max-w-[160px]' : 'items-center max-w-[200px] mx-auto'} mb-2`}>
                     
-                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
+                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-md w-full`}>
                       <Calendar size={11} className="text-amber-500 drop-shadow shrink-0 mt-[2px]" />
                       <span className="leading-snug">{activeEvent.date}</span>
                     </p>
 
-                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
+                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-md w-full`}>
                       <Clock size={11} className="text-amber-500 drop-shadow shrink-0 mt-[2px]" />
                       <span className="leading-snug">Time: {activeEvent.time}</span>
                     </p>
 
-                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
+                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-md w-full`}>
                       <Shirt size={11} className="text-amber-500 drop-shadow shrink-0 mt-[2px]" />
                       <span className="leading-snug">Dress: {activeEvent.dress}</span>
                     </p>
 
-                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-sm w-full`}>
+                    <p className={`flex ${activeEvent.id === 'reception' ? 'flex-row-reverse text-right' : 'flex-row text-left'} items-start gap-2 text-[9px] font-sans font-bold ${activeEvent.textColor} drop-shadow-md w-full`}>
                       <MapPin size={11} className="text-amber-500 drop-shadow shrink-0 mt-[2px]" />
                       <span className="leading-snug">Venue: {activeEvent.venue}</span>
                     </p>
                     
                   </div>
 
-                  <p className={`text-[9px] italic font-semibold drop-shadow-sm mt-1 ${activeEvent.textColor}`}>
+                  <p className={`text-[9px] italic font-semibold drop-shadow-md mt-1 ${activeEvent.textColor}`}>
                     &quot;{activeEvent.bottomQuote}&quot;
                   </p>
                   
