@@ -182,33 +182,6 @@ export default function MarathiInvite() {
     setIsFullyScratched(false);
   };
 
-  // --- DYNAMIC CALENDAR FILE GENERATOR ---
-  const generateICS = (event: any) => {
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Krishnanshu & Shriya Wedding//EN",
-      "BEGIN:VEVENT",
-      `SUMMARY:${event.title} - Dr. Krishnanshu & Dr. Shriya`,
-      `DTSTART:${event.icsStart}`,
-      `DTEND:${event.icsEnd}`,
-      `LOCATION:${event.venue}`,
-      "DESCRIPTION:We can't wait to celebrate with you!",
-      "END:VEVENT",
-      "END:VCALENDAR"
-    ].join("\n");
-
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `${event.id}.ics`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  // Added strict machine-readable timestamps (icsStart/icsEnd) for the calendar feature
   const eventsList = [
     {
       id: "mehndi",
@@ -225,9 +198,7 @@ export default function MarathiInvite() {
       scratchText: "✨ घासून पहा ✨",
       alignment: "items-center text-center px-4 w-full",
       modalTop: "top-[8%]",
-      titleSpacing: "mb-3",
-      icsStart: "20261202T110000",
-      icsEnd: "20261202T150000"
+      titleSpacing: "mb-3"
     },
     {
       id: "haldi",
@@ -244,9 +215,7 @@ export default function MarathiInvite() {
       scratchText: "✨ हळद उलगडून पहा ✨",
       alignment: "items-center text-center px-4 w-full",
       modalTop: "top-[8%]",
-      titleSpacing: "mb-3",
-      icsStart: "20261202T170000",
-      icsEnd: "20261202T200000"
+      titleSpacing: "mb-3"
     },
     {
       id: "sangeet",
@@ -263,9 +232,7 @@ export default function MarathiInvite() {
       scratchText: "✨ ढोल वाजवा ✨",
       alignment: "items-center text-center px-4 w-full",
       modalTop: "top-[6%]",
-      titleSpacing: "mb-0",
-      icsStart: "20261203T190000",
-      icsEnd: "20261203T233000"
+      titleSpacing: "mb-0"
     },
     {
       id: "wedding",
@@ -282,9 +249,7 @@ export default function MarathiInvite() {
       scratchText: "✨ घासून पहा ✨",
       alignment: "items-center text-center px-4 w-full",
       modalTop: "top-[6%]",
-      titleSpacing: "mb-0",
-      icsStart: "20261205T122500",
-      icsEnd: "20261205T160000"
+      titleSpacing: "mb-0"
     },
     {
       id: "reception",
@@ -301,9 +266,7 @@ export default function MarathiInvite() {
       scratchText: "✨ घासून पहा ✨",
       alignment: "items-end text-right pr-6 w-full max-w-[200px] ml-auto",
       modalTop: "top-[8%]",
-      titleSpacing: "mb-3",
-      icsStart: "20261206T190000",
-      icsEnd: "20261206T233000"
+      titleSpacing: "mb-3"
     }
   ];
 
@@ -472,13 +435,10 @@ export default function MarathiInvite() {
                       "{event.bottomQuote}"
                     </p>
                     
-                    {/* WORKING CALENDAR BUTTON */}
-                    <button 
-                      onClick={() => generateICS(event)}
-                      className="mt-3 text-[9px] font-bold text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full hover:bg-rose-50 w-max shadow-sm active:scale-95 transition-transform"
-                    >
+                    {/* VISUAL DECORATIVE BUTTON (Non-Clickable) */}
+                    <div className="mt-3 text-[9px] font-bold text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full w-max shadow-sm cursor-default select-none">
                       + कॅलेंडरमध्ये जोडा
-                    </button>
+                    </div>
                   </div>
 
                   <div 
