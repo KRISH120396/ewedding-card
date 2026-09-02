@@ -216,7 +216,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall", // Corrected spelling
+      venue: "Mauli Celebration Hall",
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -314,17 +314,17 @@ export default function BrideInvite() {
         
         <div className={`transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
           
-          {/* PAGE 1: WELCOME PAGE (AESTHETICALLY LOWERED & PERFECTLY ALIGNED) */}
+          {/* PAGE 1: WELCOME PAGE */}
           <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
             {/* 
-              FIXED: Pushed perfectly down to top-[28%] for aesthetic balance.
-              Restored w-[75%] so "Dr. Krishnanshu" stays on one line while avoiding the left side!
+              FIXED: Container shrunk to w-[60%] and locked absolute right. 
+              Font reduced to exact text-[30px] to guarantee it fits securely without hitting avatars. 
             */}
-            <div className="absolute inset-x-0 top-[28%] z-10 w-[75%] ml-auto pr-6 flex flex-col items-end text-right">
+            <div className="absolute inset-y-0 right-0 top-[28%] z-10 w-[60%] pr-6 flex flex-col items-end text-right">
               
               <p className="text-[8px] font-sans tracking-[0.1em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2 leading-snug">
                 Requesting the honour of your presence
@@ -334,18 +334,16 @@ export default function BrideInvite() {
               </p>
 
               <div className="space-y-1 flex flex-col items-end w-full">
-                {/* 
-                  RESTORED whitespace-nowrap to guarantee the names never break into two rows 
-                */}
-                <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
+                
+                <h1 className="text-[30px] whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
                   Dr. Shriya
                 </h1>
                 
-                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-1 pr-6">
+                <div className="text-xl text-[#d97706] italic font-light drop-shadow my-1 pr-6">
                   &amp;
                 </div>
                 
-                <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none">
+                <h1 className="text-[30px] whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none">
                   Dr. Krishnanshu
                 </h1>
               </div>
