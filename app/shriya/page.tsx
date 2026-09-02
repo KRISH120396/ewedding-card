@@ -175,7 +175,6 @@ export default function BrideInvite() {
     setIsFullyScratched(false);
   };
 
-  // Reordered and updated events for the Bride
   const eventsList = [
     {
       id: "haldi",
@@ -183,7 +182,7 @@ export default function BrideInvite() {
       date: "Wednesday, 2nd December 2026",
       time: "3:00 PM onwards",
       dress: "Shades of Yellow and White",
-      venue: "At home, kpd",
+      venue: "At home, Kopamandavi",
       topQuote: "Join us to celebrate our...",
       bottomQuote: "A vibrant splash of yellow to mark our golden beginning.",
       image: "/avatars/haldi.jpeg",
@@ -200,7 +199,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "8:00 AM onwards",
       dress: "Shades of green",
-      venue: "At home, kpd", 
+      venue: "At home, Kopamandavi", 
       topQuote: "Where henna meets hearts, our journey begins...",
       bottomQuote: "The deeper the mehndi, the deeper the love",
       image: "/avatars/mehndi.jpeg",
@@ -318,17 +317,16 @@ export default function BrideInvite() {
           {/* PAGE 1: WELCOME PAGE */}
           <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
-              {/* Pointing to the new Shriya welcome background */}
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* Lowered to top-[30%] because there is less text now, keeping it balanced */}
-            <div className="absolute inset-x-0 top-[30%] z-10 w-[90%] mx-auto text-center flex flex-col items-center">
+            {/* SAFELY PULLED UP TO top-[12%] TO AVOID OVERLAPPING AVATARS */}
+            <div className="absolute inset-x-0 top-[12%] z-10 w-[90%] mx-auto text-center flex flex-col items-center">
               
               <p className="text-[9px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2">
                 Requesting the honour of your presence
               </p>
-              <p className="text-[11px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md">
+              <p className="text-[11px] text-[#9a3412] italic mb-4 font-semibold drop-shadow-md">
                 Kindly join us for our celebration of togetherness
               </p>
 
@@ -337,7 +335,7 @@ export default function BrideInvite() {
                   Dr. Shriya
                 </h1>
                 
-                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-2">
+                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-1">
                   &amp;
                 </div>
                 
@@ -398,7 +396,6 @@ export default function BrideInvite() {
           {/* PAGE 3: TIMELINE LIST OF EVENTS */}
           <section className="py-12 px-4">
             <div className="text-center mb-12">
-              {/* Removed the 5 Days tag, keeping just the clean heading */}
               <h2 className="text-5xl font-cursive text-[#881337] mb-3 mt-2">The Festivities</h2>
               <div className="w-12 h-0.5 bg-[#d97706] mx-auto"></div>
             </div>
