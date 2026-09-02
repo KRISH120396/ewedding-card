@@ -216,7 +216,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mouli Celebration Hall",
+      venue: "Mauli Celebration Hall", // Corrected spelling
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -320,22 +320,22 @@ export default function BrideInvite() {
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* SAFELY PULLED UP TO top-[12%] TO AVOID OVERLAPPING AVATARS */}
-            <div className="absolute inset-x-0 top-[12%] z-10 w-[90%] mx-auto text-center flex flex-col items-center">
+            {/* FIXED ALIGNMENT: Strictly locked to the right side (items-end, text-right, ml-auto) to avoid avatars on the left */}
+            <div className="absolute inset-x-0 top-[15%] z-10 w-[90%] ml-auto text-right pr-6 flex flex-col items-end">
               
-              <p className="text-[9px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2">
+              <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2">
                 Requesting the honour of your presence
               </p>
-              <p className="text-[11px] text-[#9a3412] italic mb-4 font-semibold drop-shadow-md">
+              <p className="text-[10px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md max-w-[200px]">
                 Kindly join us for our celebration of togetherness
               </p>
 
-              <div className="space-y-1 flex flex-col items-center">
+              <div className="space-y-1 flex flex-col items-end">
                 <h1 className="text-5xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
                   Dr. Shriya
                 </h1>
                 
-                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-1">
+                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-2 pr-10">
                   &amp;
                 </div>
                 
