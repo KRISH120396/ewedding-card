@@ -314,32 +314,38 @@ export default function BrideInvite() {
         
         <div className={`transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
           
-          {/* PAGE 1: WELCOME PAGE */}
+          {/* PAGE 1: WELCOME PAGE (EXPERT LAYOUT) */}
           <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* FIXED ALIGNMENT: Strictly locked to the right side (items-end, text-right, ml-auto) to avoid avatars on the left */}
-            <div className="absolute inset-x-0 top-[15%] z-10 w-[90%] ml-auto text-right pr-6 flex flex-col items-end">
+            {/* INVISIBLE WALL FIX: 
+              w-[60%] and right-0 forces the text to stay entirely in the right column.
+              It is physically impossible for the text to reach the left 40% where the avatars are.
+            */}
+            <div className="absolute inset-y-0 right-0 top-[18%] z-10 w-[60%] pr-6 flex flex-col items-end text-right">
               
-              <p className="text-[8px] font-sans tracking-[0.2em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2">
+              <p className="text-[8px] font-sans tracking-[0.1em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2 leading-snug">
                 Requesting the honour of your presence
               </p>
-              <p className="text-[10px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md max-w-[200px]">
+              <p className="text-[10px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md leading-snug">
                 Kindly join us for our celebration of togetherness
               </p>
 
-              <div className="space-y-1 flex flex-col items-end">
-                <h1 className="text-5xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
+              <div className="space-y-1 flex flex-col items-end w-full">
+                {/* REMOVED whitespace-nowrap and REDUCED to text-4xl 
+                  so names wrap safely inside the right column if needed! 
+                */}
+                <h1 className="text-4xl font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
                   Dr. Shriya
                 </h1>
                 
-                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-2 pr-10">
+                <div className="text-2xl text-[#d97706] italic font-light drop-shadow my-1 pr-6">
                   &amp;
                 </div>
                 
-                <h1 className="text-5xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none">
+                <h1 className="text-4xl font-cursive text-[#881337] drop-shadow-lg leading-none">
                   Dr. Krishnanshu
                 </h1>
               </div>
