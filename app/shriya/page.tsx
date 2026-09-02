@@ -314,30 +314,30 @@ export default function BrideInvite() {
         
         <div className={`transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
           
-          {/* PAGE 1: WELCOME PAGE (EXPERT LAYOUT) */}
+          {/* PAGE 1: WELCOME PAGE (AESTHETICALLY LOWERED & PERFECTLY ALIGNED) */}
           <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* INVISIBLE WALL FIX: 
-              w-[60%] and right-0 forces the text to stay entirely in the right column.
-              It is physically impossible for the text to reach the left 40% where the avatars are.
+            {/* 
+              FIXED: Pushed perfectly down to top-[28%] for aesthetic balance.
+              Restored w-[75%] so "Dr. Krishnanshu" stays on one line while avoiding the left side!
             */}
-            <div className="absolute inset-y-0 right-0 top-[18%] z-10 w-[60%] pr-6 flex flex-col items-end text-right">
+            <div className="absolute inset-x-0 top-[28%] z-10 w-[75%] ml-auto pr-6 flex flex-col items-end text-right">
               
               <p className="text-[8px] font-sans tracking-[0.1em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2 leading-snug">
                 Requesting the honour of your presence
               </p>
-              <p className="text-[10px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md leading-snug">
+              <p className="text-[10px] text-[#9a3412] italic mb-6 font-semibold drop-shadow-md leading-snug max-w-[200px]">
                 Kindly join us for our celebration of togetherness
               </p>
 
               <div className="space-y-1 flex flex-col items-end w-full">
-                {/* REMOVED whitespace-nowrap and REDUCED to text-4xl 
-                  so names wrap safely inside the right column if needed! 
+                {/* 
+                  RESTORED whitespace-nowrap to guarantee the names never break into two rows 
                 */}
-                <h1 className="text-4xl font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
+                <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-1">
                   Dr. Shriya
                 </h1>
                 
@@ -345,7 +345,7 @@ export default function BrideInvite() {
                   &amp;
                 </div>
                 
-                <h1 className="text-4xl font-cursive text-[#881337] drop-shadow-lg leading-none">
+                <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none">
                   Dr. Krishnanshu
                 </h1>
               </div>
