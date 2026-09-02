@@ -216,7 +216,7 @@ export default function InteractiveInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mouli Celebration Hall",
+      venue: "Mauli Celebration Hall", // Corrected from Mouli to Mauli
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -224,7 +224,6 @@ export default function InteractiveInvite() {
       scratchColor: "#8B5CF6", 
       scratchText: "✨ TAP THE DHOL ✨",
       alignment: "items-center text-center px-4 w-full",
-      // SURGICAL FIX: A safe top-[6%] nudge, combined with tightening the internal space (mb-0)
       modalTop: "top-[6%]",
       titleSpacing: "mb-0"
     },
@@ -242,7 +241,6 @@ export default function InteractiveInvite() {
       scratchColor: "#E11D48", 
       scratchText: "✨ RUB TO REVEAL ✨",
       alignment: "items-center text-center px-4 w-full",
-      // SURGICAL FIX: A safe top-[6%] nudge, combined with tightening the internal space (mb-0)
       modalTop: "top-[6%]",
       titleSpacing: "mb-0"
     },
@@ -430,9 +428,10 @@ export default function InteractiveInvite() {
                       &quot;{event.bottomQuote}&quot;
                     </p>
                     
-                    <button className="font-sans mt-3 text-[8px] uppercase font-bold tracking-wider text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full hover:bg-rose-50 w-max shadow-sm">
+                    {/* VISUAL DECORATIVE BUTTON (Non-Clickable) */}
+                    <div className="font-sans mt-3 text-[8px] uppercase font-bold tracking-wider text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full w-max shadow-sm cursor-default select-none">
                       + ADD TO CALENDAR
-                    </button>
+                    </div>
                   </div>
 
                   <div 
@@ -496,7 +495,6 @@ export default function InteractiveInvite() {
                   className="absolute inset-0 w-full h-full object-cover object-bottom" 
                 />
                 
-                {/* Dynamically uses the tuned spacing settings from our eventsList array */}
                 <div className={`absolute inset-x-0 ${activeEvent.modalTop} z-10 flex flex-col ${activeEvent.alignment}`}>
                   
                   <p className={`text-[9px] italic font-semibold mb-1 drop-shadow-md ${activeEvent.textColor}`}>
