@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, X, Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
-// --- FIXED GLOBAL FALLING FLOWERS ---
+// --- FIXED GLOBAL FALLING FLOWERS (NOW FALLS ON EVERY PAGE) ---
 const FlowerShower = () => {
   const [petals, setPetals] = useState<any[]>([]);
 
@@ -23,7 +23,8 @@ const FlowerShower = () => {
   if (petals.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[100]">
+    // Changed 'absolute' to 'fixed max-w-[400px] mx-auto' so it follows the user down the page
+    <div className="fixed inset-0 max-w-[400px] mx-auto overflow-hidden pointer-events-none z-[100]">
       {petals.map((petal, i) => (
         <motion.div
           key={i}
@@ -216,7 +217,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall", 
+      venue: "Mauli Celebration Hall",
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -363,7 +364,6 @@ export default function BrideInvite() {
             </p>
             
             <div className="mb-12 text-[#881337]">
-              {/* SHRIYA FIRST */}
               <h2 className="text-5xl font-cursive mb-3">Dr. Shriya</h2>
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
                 D/o Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
@@ -440,7 +440,7 @@ export default function BrideInvite() {
           </section>
 
           {/* PAGE 4: THE COUNTDOWN */}
-          <section className="relative w-full py-16 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-t from-amber-50 to-[#FFFDF7]">
+          <section className="relative w-full py-16 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-t from-amber-50 to-[#FFFDF7] pb-24">
             <p className="font-sans text-[#881337] text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
               Counting down to the Muhurtham
             </p>
