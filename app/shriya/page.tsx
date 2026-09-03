@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, X, Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
-// --- FIXED GLOBAL FALLING FLOWERS (NOW FALLS ON EVERY PAGE) ---
+// --- FIXED GLOBAL FALLING FLOWERS ---
 const FlowerShower = () => {
   const [petals, setPetals] = useState<any[]>([]);
 
@@ -23,7 +23,6 @@ const FlowerShower = () => {
   if (petals.length === 0) return null;
 
   return (
-    // Changed 'absolute' to 'fixed max-w-[400px] mx-auto' so it follows the user down the page
     <div className="fixed inset-0 max-w-[400px] mx-auto overflow-hidden pointer-events-none z-[100]">
       {petals.map((petal, i) => (
         <motion.div
@@ -217,7 +216,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall",
+      venue: "Mauli Celebration Hall", 
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -234,7 +233,7 @@ export default function BrideInvite() {
       date: "Saturday, 5th December 2026",
       time: "12:25 PM onwards",
       dress: "Traditional Ethnic Wear",
-      venue: "Chilikuri Garden, Adilabad",
+      venue: "Chilkuri Garden, Adilabad", // Spelled perfectly
       topQuote: "With the blessings of our elders...",
       bottomQuote: "The sacred vows — with your blessings.",
       image: "/avatars/wedding.jpeg",
@@ -364,6 +363,7 @@ export default function BrideInvite() {
             </p>
             
             <div className="mb-12 text-[#881337]">
+              {/* SHRIYA FIRST */}
               <h2 className="text-5xl font-cursive mb-3">Dr. Shriya</h2>
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
                 D/o Mrs. Sujata &amp;<br/>Mr. Dnyaneshwar Parlawar
@@ -384,12 +384,14 @@ export default function BrideInvite() {
               </div>
               <div className="flex flex-col items-center justify-center px-2">
                 <h3 className="text-[9px] font-sans text-[#d97706] font-bold tracking-[0.25em] uppercase mb-2">Where</h3>
-                <p className="font-serif font-bold text-sm text-[#881337]">Chilikuri Garden,<br/>Adilabad</p>
+                {/* Spelled perfectly */}
+                <p className="font-serif font-bold text-sm text-[#881337]">Chilkuri Garden,<br/>Adilabad</p> 
               </div>
             </div>
             
-            <p className="font-sans font-bold text-[#881337] tracking-[0.15em] bg-rose-50 px-6 py-2 rounded-full border border-rose-100 shadow-sm">
-              #SHRIKRISHNA
+            {/* UPDATED HASHTAG: Replaced with gorgeous cursive font */}
+            <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none">
+              #ShriKrishna
             </p>
           </section>
 
