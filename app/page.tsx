@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, X, Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
-// --- FIXED GLOBAL FALLING FLOWERS ---
+// --- FIXED GLOBAL FALLING FLOWERS (NOW FALLS ON EVERY PAGE) ---
 const FlowerShower = () => {
   const [petals, setPetals] = useState<any[]>([]);
 
@@ -23,7 +23,8 @@ const FlowerShower = () => {
   if (petals.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[100]">
+    // Changed 'absolute' to 'fixed max-w-[400px] mx-auto' so it follows the user down the page
+    <div className="fixed inset-0 max-w-[400px] mx-auto overflow-hidden pointer-events-none z-[100]">
       {petals.map((petal, i) => (
         <motion.div
           key={i}
@@ -216,7 +217,7 @@ export default function InteractiveInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall", // Corrected from Mouli to Mauli
+      venue: "Mauli Celebration Hall", // Fixed spelling
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -233,7 +234,7 @@ export default function InteractiveInvite() {
       date: "Saturday, 5th December 2026",
       time: "12:25 PM onwards",
       dress: "Traditional Ethnic Wear",
-      venue: "Chilikuri Garden, Adilabad",
+      venue: "Chilkuri Garden, Adilabad", // Spelled perfectly
       topQuote: "With the blessings of our elders...",
       bottomQuote: "The sacred vows — with your blessings.",
       image: "/avatars/wedding.jpeg",
@@ -349,7 +350,7 @@ export default function InteractiveInvite() {
 
               <div className="mt-5 pt-3 inline-block border-t border-[#d97706]/60">
                 <p className="font-serif text-[15px] text-[#4c0519] font-bold drop-shadow-md">Saturday, 5th Dec 2026</p>
-                <p className="text-[8px] font-sans text-[#4c0519] font-bold tracking-widest drop-shadow-sm">12:25 PM | Chilikuri Garden</p>
+                <p className="text-[8px] font-sans text-[#4c0519] font-bold tracking-widest drop-shadow-sm">12:25 PM | Chilkuri Garden</p>
               </div>
             </div>
 
@@ -390,12 +391,13 @@ export default function InteractiveInvite() {
               </div>
               <div className="flex flex-col items-center justify-center px-2">
                 <h3 className="text-[9px] font-sans text-[#d97706] font-bold tracking-[0.25em] uppercase mb-2">Where</h3>
-                <p className="font-serif font-bold text-sm text-[#881337]">Chilikuri Garden,<br/>Adilabad</p>
+                <p className="font-serif font-bold text-sm text-[#881337]">Chilkuri Garden,<br/>Adilabad</p>
               </div>
             </div>
             
-            <p className="font-sans font-bold text-[#881337] tracking-[0.15em] bg-rose-50 px-6 py-2 rounded-full border border-rose-100 shadow-sm">
-              #SHRIKRISHNA
+            {/* UPDATED HASHTAG: Applied cursive font to match your names */}
+            <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none">
+              #ShriKrishna
             </p>
           </section>
 
