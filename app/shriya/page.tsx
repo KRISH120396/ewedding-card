@@ -216,7 +216,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall",
+      venue: "Mauli Celebration Hall", 
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -320,10 +320,6 @@ export default function BrideInvite() {
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
             </div>
             
-            {/* 
-              FIXED: Container shrunk to w-[60%] and locked absolute right. 
-              Font reduced to exact text-[30px] to guarantee it fits securely without hitting avatars. 
-            */}
             <div className="absolute inset-y-0 right-0 top-[28%] z-10 w-[60%] pr-6 flex flex-col items-end text-right">
               
               <p className="text-[8px] font-sans tracking-[0.1em] text-[#9a3412] uppercase font-bold drop-shadow-md mb-2 leading-snug">
@@ -398,7 +394,7 @@ export default function BrideInvite() {
           </section>
 
           {/* PAGE 3: TIMELINE LIST OF EVENTS */}
-          <section className="py-12 px-4">
+          <section className="pt-12 pb-16 px-4">
             <div className="text-center mb-12">
               <h2 className="text-5xl font-cursive text-[#881337] mb-3 mt-2">The Festivities</h2>
               <div className="w-12 h-0.5 bg-[#d97706] mx-auto"></div>
@@ -422,10 +418,6 @@ export default function BrideInvite() {
                     <p className={`text-[10px] italic font-medium bg-amber-50/50 px-2 py-1.5 rounded border border-amber-100 ${event.textColor}`}>
                       &quot;{event.bottomQuote}&quot;
                     </p>
-                    
-                    <div className="font-sans mt-3 text-[8px] uppercase font-bold tracking-wider text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full w-max shadow-sm cursor-default select-none">
-                      + ADD TO CALENDAR
-                    </div>
                   </div>
 
                   <div 
@@ -455,13 +447,6 @@ export default function BrideInvite() {
             
             <CountdownTimer />
             
-          </section>
-
-          {/* FOOTER */}
-          <section className="pb-12 text-center px-4 bg-amber-50">
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noreferrer" className="font-sans inline-block bg-[#881337] text-white px-8 py-3 rounded-full font-bold text-xs shadow-xl active:scale-95 transition-transform">
-              Send RSVP
-            </a>
           </section>
         </div>
 
