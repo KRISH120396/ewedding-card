@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, X, Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
-// --- FIXED GLOBAL FALLING FLOWERS ---
+// --- FIXED GLOBAL FALLING FLOWERS (NOW FALLS ON EVERY PAGE) ---
 const FlowerShower = () => {
   const [petals, setPetals] = useState<any[]>([]);
 
@@ -216,7 +216,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall", 
+      venue: "Mauli Celebration Hall, Pandharkawada", // Added Pandharkawada here
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -233,7 +233,7 @@ export default function BrideInvite() {
       date: "Saturday, 5th December 2026",
       time: "12:25 PM onwards",
       dress: "Traditional Ethnic Wear",
-      venue: "Chilkuri Garden, Adilabad", // Spelled perfectly
+      venue: "Chilkuri Garden, Adilabad",
       topQuote: "With the blessings of our elders...",
       bottomQuote: "The sacred vows — with your blessings.",
       image: "/avatars/wedding.jpeg",
@@ -384,12 +384,11 @@ export default function BrideInvite() {
               </div>
               <div className="flex flex-col items-center justify-center px-2">
                 <h3 className="text-[9px] font-sans text-[#d97706] font-bold tracking-[0.25em] uppercase mb-2">Where</h3>
-                {/* Spelled perfectly */}
-                <p className="font-serif font-bold text-sm text-[#881337]">Chilkuri Garden,<br/>Adilabad</p> 
+                <p className="font-serif font-bold text-sm text-[#881337]">Chilkuri Garden,<br/>Adilabad</p>
               </div>
             </div>
             
-            {/* UPDATED HASHTAG: Replaced with gorgeous cursive font */}
+            {/* UPDATED HASHTAG */}
             <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none">
               #ShriKrishna
             </p>
