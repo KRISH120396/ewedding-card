@@ -23,7 +23,6 @@ const FlowerShower = () => {
   if (petals.length === 0) return null;
 
   return (
-    // Changed 'absolute' to 'fixed max-w-[400px] mx-auto' so it follows the user down the page
     <div className="fixed inset-0 max-w-[400px] mx-auto overflow-hidden pointer-events-none z-[100]">
       {petals.map((petal, i) => (
         <motion.div
@@ -217,7 +216,7 @@ export default function InteractiveInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall", // Fixed spelling
+      venue: "Mauli Celebration Hall, Pandharkawada", // Added Pandharkawada
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -234,7 +233,7 @@ export default function InteractiveInvite() {
       date: "Saturday, 5th December 2026",
       time: "12:25 PM onwards",
       dress: "Traditional Ethnic Wear",
-      venue: "Chilkuri Garden, Adilabad", // Spelled perfectly
+      venue: "Chilkuri Garden, Adilabad", 
       topQuote: "With the blessings of our elders...",
       bottomQuote: "The sacred vows — with your blessings.",
       image: "/avatars/wedding.jpeg",
@@ -395,7 +394,7 @@ export default function InteractiveInvite() {
               </div>
             </div>
             
-            {/* UPDATED HASHTAG: Applied cursive font to match your names */}
+            {/* UPDATED HASHTAG */}
             <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none">
               #ShriKrishna
             </p>
