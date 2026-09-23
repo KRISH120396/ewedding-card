@@ -216,7 +216,7 @@ export default function InteractiveInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall, Pandharkawada", // Added Pandharkawada
+      venue: "Mauli Celebration Hall, Pandharkawada", 
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -333,7 +333,7 @@ export default function InteractiveInvite() {
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-cursive text-[#881337] drop-shadow-lg leading-none mb-2">Dr. Krishnanshu</h1>
                   <p className="text-[8px] text-slate-800 font-sans uppercase tracking-[0.1em] font-extrabold text-right">
-                    Son of Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
+                    Son of Mrs. Kavita &amp;<br/>Mr. Rajendra Bhandarwar
                   </p>
                 </div>
                 
@@ -372,7 +372,7 @@ export default function InteractiveInvite() {
             <div className="mb-12 text-[#881337]">
               <h2 className="text-5xl font-cursive mb-3">Dr. Krishnanshu</h2>
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
-                S/o Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
+                S/o Mrs. Kavita &amp;<br/>Mr. Rajendra Bhandarwar
               </p>
               
               <h2 className="text-4xl font-cursive text-[#d97706] my-6">&amp;</h2>
