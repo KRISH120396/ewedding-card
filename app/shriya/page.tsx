@@ -175,6 +175,7 @@ export default function BrideInvite() {
     setIsFullyScratched(false);
   };
 
+  // Reordered and updated events for the Bride's side
   const eventsList = [
     {
       id: "haldi",
@@ -216,7 +217,7 @@ export default function BrideInvite() {
       date: "Thursday, 3rd December 2026",
       time: "7:00 PM onwards",
       dress: "Indo-Western / Glamorous",
-      venue: "Mauli Celebration Hall, Pandharkawada", // Added Pandharkawada here
+      venue: "Mauli Celebration Hall, Pandharkawada", 
       topQuote: "An evening of rhythm, beats, and dancing...",
       bottomQuote: "Music, dance and the whole family on its feet.",
       image: "/avatars/sangeet.jpeg",
@@ -314,7 +315,7 @@ export default function BrideInvite() {
         
         <div className={`transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
           
-          {/* PAGE 1: WELCOME PAGE */}
+          {/* PAGE 1: WELCOME PAGE (NO PARENT NAMES OR DATE FOR BRIDE'S SIDE) */}
           <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden">
             <div className="absolute inset-0 w-full h-full z-0">
               <img src="/avatars/shriya-welcome.jpeg" alt="Welcome" className="w-full h-full object-cover object-bottom" />
@@ -373,7 +374,7 @@ export default function BrideInvite() {
               
               <h2 className="text-5xl font-cursive mb-3">Dr. Krishnanshu</h2>
               <p className="text-[10px] text-slate-600 uppercase tracking-[0.15em] font-sans font-bold leading-relaxed">
-                S/o Mrs. Kavita &amp;<br/>Mr. Rajanna Bhandarwar
+                S/o Mrs. Kavita &amp;<br/>Mr. Rajendra Bhandarwar
               </p>
             </div>
 
@@ -388,7 +389,7 @@ export default function BrideInvite() {
               </div>
             </div>
             
-            {/* UPDATED HASHTAG */}
+            {/* UPDATED HASHTAG: Cursive Font applied */}
             <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none">
               #ShriKrishna
             </p>
