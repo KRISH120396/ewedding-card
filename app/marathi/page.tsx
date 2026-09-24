@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, X, Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
-// --- FIXED GLOBAL FALLING FLOWERS ---
+// --- FIXED GLOBAL FALLING FLOWERS (NOW FALLS ON EVERY PAGE) ---
 const FlowerShower = () => {
   const [petals, setPetals] = useState<any[]>([]);
 
@@ -23,7 +23,7 @@ const FlowerShower = () => {
   if (petals.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[100]">
+    <div className="fixed inset-0 max-w-[400px] mx-auto overflow-hidden pointer-events-none z-[100]">
       {petals.map((petal, i) => (
         <motion.div
           key={i}
@@ -223,7 +223,7 @@ export default function MarathiInvite() {
       date: "गुरुवार, ३ डिसेंबर २०२६",
       time: "सायंकाळी ७:०० वाजता",
       dress: "इंडो-वेस्टर्न",
-      venue: "माऊली सेलिब्रेशन हॉल",
+      venue: "माऊली सेलिब्रेशन हॉल, पांढरकवडा", // Added Pandharkawada
       topQuote: "सुर, ताल आणि नृत्याची एक अविस्मरणीय संध्याकाळ...",
       bottomQuote: "संगीत, नृत्य आणि संपूर्ण कुटुंबाचा जल्लोष.",
       image: "/avatars/sangeet.jpeg",
@@ -240,7 +240,7 @@ export default function MarathiInvite() {
       date: "शनिवार, ५ डिसेंबर २०२६",
       time: "दुपारी १२:२५ वाजता",
       dress: "पारंपारिक पेहराव",
-      venue: "चिलिकुरी गार्डन, आदिलाबाद",
+      venue: "चिलकुरी गार्डन, आदिलाबाद", // Corrected Chilkuri
       topQuote: "वडिलधाऱ्यांच्या आशीर्वादाने...",
       bottomQuote: "पवित्र विवाह बंधनात — तुमच्या साक्षीने.",
       image: "/avatars/wedding.jpeg",
@@ -341,7 +341,7 @@ export default function MarathiInvite() {
                 <div className="text-right flex flex-col items-end">
                   <h1 className="text-4xl whitespace-nowrap font-marathi font-bold text-[#881337] drop-shadow-lg leading-none mb-2">डॉ. कृष्णांशू</h1>
                   <p className="text-[9px] text-slate-800 font-bold text-right">
-                    श्रीमती कविता आणि<br/>श्री. राजन्ना भंडारवार यांचे सुपुत्र
+                    श्रीमती कविता आणि<br/>श्री. राजेंद्र भंडारवार यांचे सुपुत्र  {/* Corrected Rajendra */}
                   </p>
                 </div>
                 
@@ -357,7 +357,7 @@ export default function MarathiInvite() {
 
               <div className="mt-5 pt-3 inline-block border-t border-[#d97706]/60">
                 <p className="text-[15px] text-[#4c0519] font-bold drop-shadow-md">शनिवार, ५ डिसेंबर २०२६</p>
-                <p className="text-[10px] text-[#4c0519] font-bold drop-shadow-sm">दुपारी १२:२५ | चिलिकुरी गार्डन</p>
+                <p className="text-[10px] text-[#4c0519] font-bold drop-shadow-sm">दुपारी १२:२५ | चिलकुरी गार्डन</p> {/* Corrected Chilkuri */}
               </div>
             </div>
 
@@ -379,7 +379,7 @@ export default function MarathiInvite() {
             <div className="mb-12 text-[#881337]">
               <h2 className="text-5xl font-marathi font-bold mb-3">डॉ. कृष्णांशू</h2>
               <p className="text-[11px] text-slate-600 font-bold leading-relaxed">
-                श्रीमती कविता आणि<br/>श्री. राजन्ना भंडारवार यांचे सुपुत्र
+                श्रीमती कविता आणि<br/>श्री. राजेंद्र भंडारवार यांचे सुपुत्र {/* Corrected Rajendra */}
               </p>
               
               <h2 className="text-4xl font-cursive text-[#d97706] my-6">&amp;</h2>
@@ -397,12 +397,13 @@ export default function MarathiInvite() {
               </div>
               <div className="flex flex-col items-center justify-center px-2">
                 <h3 className="text-[11px] text-[#d97706] font-bold mb-2">कुठे</h3>
-                <p className="text-[12px] font-bold text-[#881337] leading-tight">चिलिकुरी गार्डन,<br/>आदिलाबाद</p>
+                <p className="text-[12px] font-bold text-[#881337] leading-tight">चिलकुरी गार्डन,<br/>आदिलाबाद</p> {/* Corrected Chilkuri */}
               </div>
             </div>
             
-            <p className="font-sans font-bold text-[#881337] tracking-[0.15em] bg-rose-50 px-6 py-2 rounded-full border border-rose-100 shadow-sm">
-              #SHRIKRISHNA
+            {/* UPDATED HASHTAG: Cursive Font applied */}
+            <p className="font-cursive text-4xl text-[#881337] bg-rose-50 px-8 py-3 rounded-full border border-rose-100 shadow-sm leading-none pt-4">
+              #ShriKrishna
             </p>
           </section>
 
@@ -434,11 +435,6 @@ export default function MarathiInvite() {
                     <p className={`text-[10px] font-semibold bg-amber-50/50 px-2 py-1.5 rounded border border-amber-100 ${event.textColor}`}>
                       "{event.bottomQuote}"
                     </p>
-                    
-                    {/* VISUAL DECORATIVE BUTTON (Non-Clickable) */}
-                    <div className="mt-3 text-[9px] font-bold text-rose-600 border border-rose-200 px-3 py-1.5 rounded-full w-max shadow-sm cursor-default select-none">
-                      + कॅलेंडरमध्ये जोडा
-                    </div>
                   </div>
 
                   <div 
@@ -461,20 +457,13 @@ export default function MarathiInvite() {
           </section>
 
           {/* PAGE 4: THE COUNTDOWN */}
-          <section className="relative w-full py-16 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-t from-amber-50 to-[#FFFDF7]">
+          <section className="relative w-full py-16 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-t from-amber-50 to-[#FFFDF7] pb-24">
             <p className="text-[#881337] text-[11px] font-bold mb-8">
               शुभ मुहूर्ताची प्रतीक्षा
             </p>
             
             <CountdownTimer />
             
-          </section>
-
-          {/* FOOTER */}
-          <section className="pb-12 text-center px-4 bg-amber-50">
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noreferrer" className="inline-block bg-[#881337] text-white px-8 py-3 rounded-full font-bold text-sm shadow-xl active:scale-95 transition-transform">
-              कळवावे (RSVP)
-            </a>
           </section>
         </div>
 
